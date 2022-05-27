@@ -1,121 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="icon" type="img/x-icon" href="https://carolinanewsandreporter.cic.sc.edu/wp-content/uploads/2018/11/FallingNug1.jpg">
-  <title>Chicken Nugget Clicker</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-      * {
-        font-family: 'Merriweather';
-        color: red;
-        background-color: tan;
-    }
+  <head>
+    <link rel="icon" type="img/x-icon" href="https://carolinanewsandreporter.cic.sc.edu/wp-content/uploads/2018/11/FallingNug1.jpg">
+    <title>Chicken Nugget Clicker</title>
+  </head>
+  <body>
+    <h2>Chicken nuggets made: <span id="score"></span></h2>
+    <h2 class="npc">NPC (nuggets per click): <span id="npc"></span></h2>
+    <hr />
+    <button onclick="nuggetClicked()"><img src="https://i.ytimg.com/vi/xFqpUWtuRZM/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLDgP0scef2q_n9p0LFPgBxcyMtF1A" id="nuggetImg"></button>
+    <div id="upgrades">
+      <button onclick="ketchupClicked()"><p>Ketchup packet: 10 nuggies<br />
+        NPC: 20 nuggies</p><img src="ketchup-costume.jpg"><p>Ketchup packets owned: <span id="ketchupPacketsOwned"></span></p></button>
+      <button onclick="mustardClicked()"><p>Mustard packet: 10 nuggies<br />
+         NPC: 20 nuggies</p><img src="https://i5.walmartimages.com/asr/2c525ea2-9b93-40f4-967c-c9756c9f7e96_1.c4a8d8902b9805f5a5cf8802212ac0ca.jpeg"><p>Mustard packets owned: <span id="mustardPacketsOwned"></span></p></button>
+    </div>
+    <script>
+      //variables
+      const scoreDisplay = document.getElementById('score')
+      const npcDisplay = document.getElementById('npc')
+      const ketchupPacketDisplay = document.getElementById('ketchupPacketsOwned')
+      const mustardPacketDisplay = document.getElementById('mustardPacketsOwned')
+      let score = 0
+      let multiplier = 1
+      let ketchupPacketsOwned = 0
+      let bbqPacketsOwned = 0
+      let ppsPacketsOwned = 0
+      let chickenStripsSound = new Audio('chicken-strips.mp3')
     
-    button {
-      border: 1px solid tan;
-      background-color: transparent;
-      cursor: pointer;
-    }
-    
-    #nuggetImg {
-      width: 250px;
-      height: 200px;
-    }
-    
-    #upgrades {
-      float: right;
-      vertical-align: top;
-    }
-    
-    #upgrades img {
-      width: 100px;
-      height: 100px;
-      vertical-align: center;
-    }
-    
-    #upgrades p {
-      display: inline-block;
-    }
-    
-    #upgrades button {
-      display: flex;
-      border: 2px dashed black;
-      width: 300px;
-      height: 110px;
-    }
-    
-    .npc {
-      text-align: right;
-    }
-  </style>
-</html>
-<body>
-  <h2>Chicken nuggets made: <span id="score"></span></h2>
-  <h2 class="npc">NPC (nuggets per click): <span id="npc"></span></h2>
-  <hr />
-  <button onclick="nuggetClicked()"><img src="https://i.ytimg.com/vi/xFqpUWtuRZM/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLDgP0scef2q_n9p0LFPgBxcyMtF1A" id="nuggetImg"></button>
-  <div id="upgrades">
-    <button onclick="ketchupClicked()"><p>Ketchup packet: 10 nuggies<br />
-      NPC: 20 nuggies</p><img src="ketchup-costume.jpg"><p>Ketchup packets owned: <span id="ketchupPacketsOwned"></span></p></button>
-    <button onclick="mustardClicked()"><p>Mustard packet: 10 nuggies<br />
-      NPC: 20 nuggies</p><img src="https://i5.walmartimages.com/asr/2c525ea2-9b93-40f4-967c-c9756c9f7e96_1.c4a8d8902b9805f5a5cf8802212ac0ca.jpeg"><p>Mustard packets owned: <span id="mustardPacketsOwned"></span></p></button>
-  </div>
-  <script>
-    //variables
-    const scoreDisplay = document.getElementById('score')
-    const npcDisplay = document.getElementById('npc')
-    const ketchupPacketDisplay = document.getElementById('ketchupPacketsOwned')
-    const mustardPacketDisplay = document.getElementById('mustardPacketsOwned')
-    let score = 0
-    let multiplier = 1
-    let ketchupPacketsOwned = 0
-    let bbqPacketsOwned = 0
-    let ppsPacketsOwned = 0
-    let chickenStripsSound = new Audio('chicken-strips.mp3')
-    
-    //game
-    scoreDisplay.textContent = score
-    npcDisplay.textContent = multiplier
-    ketchupPacketDisplay.textContent = ketchupPacketsOwned
-    mustardPacketDisplay.textContent = mustardPacketsOwned
-    
-    function nuggetClicked() {
-      chickenStripsSound.play()
-      score += multiplier
+      //game
       scoreDisplay.textContent = score
-    }
+      npcDisplay.textContent = multiplier
+      ketchupPacketDisplay.textContent = ketchupPacketsOwned
+      mustardPacketDisplay.textContent = mustardPacketsOwned
     
-    function ketchupClicked() {
-      if (score >= 10) {
-        if (ketchupPacketsOwned >= 100) {
-          alert(`You cannot have any more than ${ketchupPacketsOwned} ketchup packets`)
-        } else {
-          score -= 10
-          multiplier += 20
-          scoreDisplay.textContent = score
-          npcDisplay.textContent = multiplier
-          ketchupPacketsOwned++
-          ketchupPacketDisplay.textContent = ketchupPacketsOwned
-        }
-      } else {
-        alert('You do not have enough nuggets to buy this')
-      }
-    }
-    
-    function mustardClicked() {
-      if (score >= 10) {
-        if (mustardPacketsOwned >= 100) {
-          alert(`You cannot have any more than ${mustardPacketsOwned} mustard packets')
-        } else {
-        score -= 10
-        multiplier += 20
+      function nuggetClicked() {
+        chickenStripsSound.play()
+        score += multiplier
         scoreDisplay.textContent = score
-        npcDisplay.textContent = multiplier
-        mustardPacketsOwned++
-        mustardPacketDisplay.textContent = mustardPacketsOwned
+      }
+    
+      function ketchupClicked() {
+        if (score >= 10) {
+          if (ketchupPacketsOwned >= 100) {
+            alert(`You cannot have any more than ${ketchupPacketsOwned} ketchup packets`)
+          } else {
+            score -= 10
+            multiplier += 20
+            scoreDisplay.textContent = score
+            npcDisplay.textContent = multiplier
+            ketchupPacketsOwned++
+            ketchupPacketDisplay.textContent = ketchupPacketsOwned
+          }
         } else {
-        alert('You do not have enough nuggets to buy this')
+          alert('You do not have enough nuggets to buy this')
         }
       }
-    }
-  </script>
-</body>
+    
+      function mustardClicked() {
+        if (score >= 10) {
+          if (mustardPacketsOwned >= 100) {
+            alert(`You cannot have any more than ${mustardPacketsOwned} mustard packets`)
+          } else {
+            score -= 10
+            multiplier += 20
+            scoreDisplay.textContent = score
+            npcDisplay.textContent = multiplier
+            mustardPacketsOwned++
+            mustardPacketDisplay.textContent = mustardPacketsOwned
+          } else {
+          alert('You do not have enough nuggets to buy this')
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
