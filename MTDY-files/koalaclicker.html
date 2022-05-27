@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="MTDYStyle.css">
+    <link rel="icon" type="image/x-icon" href="/images/MTDYFavicon.ico">
+    <title>Happy Mother's Day, Momma!</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+      * {
+        background-color: #D2B48C;
+        color: #BB0022;
+        font-family: 'Merriweather';
+      }
+
+      button {
+        background-color: transparent;
+        border:1px solid #D2B48C;
+        cursor: pointer;
+      }
+
+      #koalaImg {
+        width: 300px;
+        height: 300px;
+      }
+
+      #upgrades {
+        float: right;
+        vertical-align: top;
+      }
+
+      #upgrades img {
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+      }
+
+      #upgrades p {
+        display: inline-block;
+      }
+
+      #upgrades button {
+        display: flex;
+        border: 2px dashed black;
+        width: 300px;
+        height: 110px;
+      }
+
+      .kpc {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Presenting... KOALA CLICKER!!!</h1>
+    <button onclick="playMusic()"><h2>Click if you want some music</h2></button>
+    <button onclick="switchSongs()"><h2>Click if you don't like this song</h2></button>
+    <button onclick="loopCurrentSong()"><h2>Click if you want to loop the song you are currently listening to</h2></button>
+    <button onclick="stopLoopingCurrentSong()"><h2>Click if you would like to STOP looping the song you are currently listening to</h2></button>
+    <h2>Koalas: <span id="score"></span></h2><h2 class="kpc">KPC: <span id="kpc"></span></span></h2>
+<hr />
+<button onclick="koalaClicked()"><img src="https://purepng.com/public/uploads/large/koala-bear-lmr.png" id="koalaImg"></button>
+<div id="upgrades">
+  <button onclick="eucaClicked()"><p>Eucalyptus: 10 koalas<br />
+    KPC: 20 koalas</p><img src="/images/euca-tree.png"><p>Eucalyptus Trees Owned: <span id="eucasOwnedDisplay"></span>
+    </p></button>
+  <button onclick="eucaForestClicked()"><p>Eucalyptus Forest: 100 koalas<br />
+    KPC: 50 koalas</p><img src="https://i.pinimg.com/originals/f1/c9/bf/f1c9bfd63fb958ef3ba2e9ccd1fd8af1.jpg"><p>Eucalyptus Forests Owned: <span id="eucaForestsOwnedDisplay"></span>
+    </p></button>
+  <button onclick="austClicked()"><p>Austrailia: 1,000 koalas<br />
+    KPC: 500 koalas</p><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"><p>Australias Owned: <span id="australiasOwnedDisplay"></span>
+    </p></button>
+  <button onclick="KPClicked()">Russian dictator Koalamir Putin makes peace with Ukraine: 10,000 koalas<br />
+  KPC: 1,000 koalas<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1048377/LINEStorePC/main.png;compress=true"><p>Koalamir Putins Owned: <span id="putinsOwnedDisplay"></span>
+    </p></button>
+</div>
+  <script>
+      const koalaSFX = new Audio('/sounds/koala[1].mp3')
+      var music = new Audio(),
+          i = 0
+      const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
+      const eucaForestsOwnedDisplay = document.getElementById('eucaForestsOwnedDisplay')
+      const australiasOwnedDisplay = document.getElementById('australiasOwnedDisplay')
+      const putinsOwnedDisplay = document.getElementById('putinsOwnedDisplay')
+      const scoreDisplay = document.getElementById('score')
+      const kpcDisplay = document.getElementById('kpc')
+      let score = 0
+      let multiplier = 1
+      let eucasOwned = 0
+      let eucaForestsOwned = 0
+      let australiasOwned = 0
+      let putinsOwned = 0
+      scoreDisplay.textContent = score
+      kpcDisplay.textContent = multiplier
+      const playlist = new Array("/sounds/Rezonate - Canvas (totally clean).mp3", "/sounds/Rezonate - Ash.mp3", "/sounds/Ajr - World's Smallest Violin (totally clean).mp3")
+      
+      music.addEventListener('ended', () => {
+        i = ++i < playlist.length ? i : 0
+        music.src = playlist[i]
+        music.play()
+      }, true)
+      
+      function playMusic() {
+        if (musicStarted) {
+          switchSongs()
+        } else {
+           i = 1
+           music.src = playlist[i]
+           music.play()
+           var musicStarted = Boolean(true)
+         }
+      }
+    
+      function switchSongs() {
+        i = ++i < playlist.length ? i : 0
+        music.src = playlist[i]
+        music.play()
+      }
+     
+      function loopCurrentSong() {
+        music.loop = true
+      }
+    
+      function stopLoopingCurrentSong() {
+        music.loop = false
+      }
+
+      function koalaClicked() {
+        koalaSFX.play()
+        score += multiplier
+        scoreDisplay.textContent = score
+      }
+
+      function eucaClicked() {
+        if (score >= 10) {
+          if (eucasOwned >= 20) {
+            alert(`You cannot own any more than ${eucasOwned} eucalyptus trees`)
+          } else {
+            eucasOwned++
+            multiplier += 20
+            kpcDisplay.textContent = multiplier
+            score -= 10
+            scoreDisplay.textContent = score
+            eucasOwnedDisplay.textContent = eucasOwned
+          }
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+      }
+
+      function eucaForestClicked() {
+        if (score >= 100) {
+          if (eucaForestsOwned >= 20) {
+            alert(`You cannot own any more than ${eucaForestsOwned} eucalyptus forests`)
+          } else {
+            eucaForestsOwned++
+            multiplier += 50
+            kpcDisplay.textContent = multiplier
+            score -= 100
+            scoreDisplay.textContent = score
+            eucaForestsOwnedDisplay.textContent = eucaForestsOwned
+          }
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+      }
+
+      function austClicked() {
+        if (score >= 1000) {
+          if (australiasOwned >= 20) {
+            alert(`You cannot own any more than ${australiasOwned} Australias`)
+          } else {
+            australiasOwned++
+            multiplier += 500
+            kpcDisplay.textContent = multiplier
+            score -= 1000
+            scoreDisplay.textContent = score
+            australiasOwnedDisplay.textContent = australiasOwned
+          }
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+      }
+      
+    function KPClicked() {
+      if (score >= 10000) {
+          if (putinsOwned >= 20) {
+            alert(`You cannot own any more than ${putinsOwned} Koalamir Putins`)
+          } else {
+            putinsOwned++
+            multiplier += 1000
+            kpcDisplay.textContent = multiplier
+            score -= 10000
+            scoreDisplay.textContent = score
+            putinsOwnedDisplay.textContent = putinsOwned
+          }
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+    }
+    </script>
+  </body>
+</html>
