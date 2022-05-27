@@ -1,54 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="MTDYStyle.css">
-    <link rel="icon" type="image/x-icon" href="/images/MTDYFavicon.ico">
+    <link rel="stylesheet" href="clickerstyle.css">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/GlubGlubdoggo/MTDY/main/images/MTDYFavicon.ico">
     <title>Happy Mother's Day, Momma!</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-      * {
-        background-color: #D2B48C;
-        color: #BB0022;
-        font-family: 'Merriweather';
-      }
-
-      button {
-        background-color: transparent;
-        border:1px solid #D2B48C;
-        cursor: pointer;
-      }
-
-      #koalaImg {
-        width: 300px;
-        height: 300px;
-      }
-
-      #upgrades {
-        float: right;
-        vertical-align: top;
-      }
-
-      #upgrades img {
-        width: 100px;
-        height: 100px;
-        vertical-align: middle;
-      }
-
-      #upgrades p {
-        display: inline-block;
-      }
-
-      #upgrades button {
-        display: flex;
-        border: 2px dashed black;
-        width: 300px;
-        height: 110px;
-      }
-
-      .kpc {
-        text-align: right;
-      }
-    </style>
   </head>
   <body>
     <h1>Presenting... KOALA CLICKER!!!</h1>
@@ -74,7 +29,7 @@
     </p></button>
 </div>
   <script>
-      const koalaSFX = new Audio('/sounds/koala[1].mp3')
+      const koalaSFX = new Audio('https://raw.githubusercontent.com/GlubGlubdoggo/MTDY/main/sounds/koala[1].mp3')
       var music = new Audio(),
           i = 0
       const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
@@ -91,7 +46,7 @@
       let putinsOwned = 0
       scoreDisplay.textContent = score
       kpcDisplay.textContent = multiplier
-      const playlist = new Array("/sounds/Rezonate - Canvas (totally clean).mp3", "/sounds/Rezonate - Ash.mp3", "/sounds/Ajr - World's Smallest Violin (totally clean).mp3")
+      const playlist = new Array("https://raw.githubusercontent.com/GlubGlubdoggo/MTDY/main/sounds/Rezonate - Canvas (totally clean).mp3", "https://raw.githubusercontent.com/GlubGlubdoggo/MTDY/main/sounds/Rezonate - Ash.mp3", "https://raw.githubusercontent.com/GlubGlubdoggo/MTDY/main/sounds/Ajr - World's Smallest Violin (totally clean).mp3")
       
       music.addEventListener('ended', () => {
         i = ++i < playlist.length ? i : 0
