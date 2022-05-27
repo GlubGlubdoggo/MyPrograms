@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap
+  );
+* {
+  background-color: #D2B48C;
+  color: #BB0022;
+  font-family: 'Merriweather';
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #D2B48C;
+  cursor: pointer;
+}
+
+#topicImg {
+  width: 300px;
+  height: 300px;
+}
+
+#upgrades {
+  float: right;
+  vertical-align: top;
+}
+
+#upgrades img {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+}
+
+#upgrades p {
+  display: inline-block;
+}
+
+#upgrades button {
+  display: flex;
+  border: 2px dashed black;
+  width: 300px;
+  height:110px;
+}
+
+.tpc {
+  text-align: right;
+}
