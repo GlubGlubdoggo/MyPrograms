@@ -62,6 +62,7 @@
       const JAOwnedDisplay = document.getElementById('JAOwnedDisplay')
       let score = 0
       let multiplier = 1
+      let interval = 10000
       let JFOwned = 0
       let FJFOwned = 0
       let AuJFOwned = 0
@@ -166,6 +167,15 @@
           } else {
             alert('You do not have enough Jimboskis to buy that')
           }
+        }
+      }
+      
+      function JAClicked() {
+        if (interval JAOwned > 18) {
+          alert(`You cannot own more than ${JAOwned} Jimbo Assistants`)
+        } else {
+          interval -= 500
+          setInterval(JimboskiClicked(), interval)
         }
       }
     </script>
