@@ -30,6 +30,7 @@
   </head>
   <body>
     <h1>HAPPY BIRTHDAY CAMDEN!  CLICK JIMBOSKI.</h1>
+    <button onclick="ya()">temporary</button>
     <h2>Jimboskis: <span id="jimboskiDisplay"></span></h2>
     <h2 class="tpc">Jimboskis per click: <span id="jpcDisplay"></span></h2>
     <hr />
@@ -88,6 +89,13 @@
       function check() {
         if (score >= 6000000) {
           window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+        }
+      }
+      
+      function ya() {
+        for (var i = 0; i < 6000000; i++) {
+          score++
+          check()
         }
       }
     </script>
