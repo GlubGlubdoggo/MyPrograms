@@ -176,7 +176,10 @@
         } else {
           if (score >= 100) {
             interval -= 500
-            setInterval(jimboskiClicked(), interval)
+            setInterval(() => {
+              score += multiplier
+              scoreDisplay.textContent = score
+            }, interval)
             score -= 100
             scoreDisplay.textContent = score
             JAOwned++
