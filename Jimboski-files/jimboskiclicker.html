@@ -170,6 +170,13 @@
           }
         }
       }
+      
+      function update() {
+        scoreBeingDisplayed = score.toLocaleString()
+        jpcBeingDisplayed = score.toLocaleString()
+      }
+      
+      setInterval(update(), 100)
     </script>
   </body>
 </html>
