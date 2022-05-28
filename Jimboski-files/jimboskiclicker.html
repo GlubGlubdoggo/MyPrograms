@@ -117,6 +117,60 @@
           }
         }
       }
+      
+      function AuJFClicked() {
+        if (AuJFOwned >= 30) {
+          alert(`You cannot own more than ${AuJFOwned} Jimbo Fuel cans`)
+        } else {
+          if (score >= 900) {
+            score -= 900
+            multiplier += 100
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
+            AuJFOwned++
+            AuJFOwnedDisplay.textContent = AuJFOwned
+          } else {
+            alert('You do not have enough Jimboskis to buy that')
+          }
+        }
+      }
+      
+      function PJFClicked() {
+        if (PJFOwned >= 30) {
+          alert(`You cannot own more than ${PJFOwned} Jimbo Fuel cans`)
+        } else {
+          if (score >= 1500) {
+            score -= 1500
+            multiplier += 300
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
+            PJFOwned++
+            PJFOwnedDisplay.textContent = PJFOwned
+          } else {
+            alert('You do not have enough Jimboskis to buy that')
+          }
+        }
+      }
+      
+      function GJFClicked() {
+        if (GJFOwned >= 30) {
+          alert(`You cannot own more than ${GJFOwned} Jimbo Fuel cans`)
+        } else {
+          if (score >= 5000) {
+            score -= 5000
+            multiplier += 1000
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
+            PJFOwned++
+            PJFOwnedDisplay.textContent = PJFOwned
+          } else {
+            alert('You do not have enough Jimboskis to buy that')
+          }
+        }
+      }
+
+
+
 
       setInterval(check(), 100)
       
