@@ -4,6 +4,26 @@
     <title>Jimboski clicker</title>
     <link rel="stylesheet" href="/main-stuff/clickerstyle.css">
     <link rel="icon" type="image/x-icon" href="/Jimboski-files/images/Jimboski.png">
+    <style>
+      .Assistants {
+        float: left;
+        vertical-align: top;
+      }
+      .Assistants img {
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
+      }
+      .Assistants p {
+        display: inline-block;
+      }
+      .Assistants button {
+        display: flex;
+        border: 2px dashed black;
+        width: 300px;
+        height: 110px;
+      }
+    </style>
   </head>
   <body>
     <h1>HAPPY BIRTHDAY CAMDEN!  CLICK JIMBOSKI.</h1>
@@ -22,6 +42,10 @@
         JPC: 300</p><img src="/Jimboski-files/images/PlatinumJimboFuel.png"><p>Platinum Jimbo Fuel owned: <span id="PJFOwnedDisplay"></span></p></button>
       <button onclick="GJFClicked()"><p>Godly JImbo Fuel: 5,000 Jimboskis<br />
         JPC: 1,000</p><img src="/Jimboski-files/images/GodlyJimboFuel.gif"><p>Godly Jimbo Fuel owned: <span id="GJFOwnedDisplay"></span></p></button>
+    </div>
+    <div class="Assistants">
+      <button onclick="assistantClicked"><p>Autoclicks every 5 seconds<br />
+        100 Jimboskis</p><img src="JimboAssistant.png"><p>Jimbo Assistants owned: <span id="JAOwnedDisplay"></span></p></button>
     </div>
   </body>
 </html>
