@@ -70,8 +70,6 @@
       let JAOwned = 0
       
       //game
-      scoreBeingDisplayed = score.toLocaleString()
-      jpcBeingDisplayed = score.toLocaleString()
       scoreDisplay.textContent = scoreBeingDisplayed
       jpcDisplay.textContent = multiplier
       JFOwnedDisplay.textContent = JFOwned
@@ -93,8 +91,8 @@
           if (score >= 150) {
             score -= 150
             multiplier += 10
-            scoreDisplay.textContent = scoreBeingDisplayed
-            jpcDisplay.textContent = multiplierBeingDisplayed
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
             JFOwned++
             JFOwnedDisplay.textContent = JFOwned
           } else {
@@ -110,8 +108,8 @@
           if (score >= 300) {
             score -= 300
             multiplier += 50
-            scoreDisplay.textContent = scoreBeingDisplayed
-            jpcDisplay.textContent = multiplierBeingDisplayed
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
             FJFOwned++
             FJFOwnedDisplay.textContent = FJFOwned
           } else {
@@ -127,8 +125,8 @@
           if (score >= 900) {
             score -= 900
             multiplier += 100
-            scoreDisplay.textContent = scoreBeingDisplayed
-            jpcDisplay.textContent = multiplierBeingDisplayed
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
             AuJFOwned++
             AuJFOwnedDisplay.textContent = AuJFOwned
           } else {
@@ -144,8 +142,8 @@
           if (score >= 1500) {
             score -= 1500
             multiplier += 300
-            scoreDisplay.textContent = scoreBeingDisplayed
-            jpcDisplay.textContent = multiplierBeingDisplayed
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
             PJFOwned++
             PJFOwnedDisplay.textContent = PJFOwned
           } else {
@@ -161,8 +159,8 @@
           if (score >= 5000) {
             score -= 5000
             multiplier += 1000
-            scoreDisplay.textContent = scoreBeingDisplayed
-            jpcDisplay.textContent = multiplierBeingDisplayed
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
             GJFOwned++
             GJFOwnedDisplay.textContent = GJFOwned
           } else {
@@ -170,13 +168,6 @@
           }
         }
       }
-      
-      function update() {
-        scoreBeingDisplayed = score.toLocaleString()
-        jpcBeingDisplayed = score.toLocaleString()
-      }
-      
-      setInterval(update(), 100)
     </script>
   </body>
 </html>
