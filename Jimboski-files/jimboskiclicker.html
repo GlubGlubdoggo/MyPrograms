@@ -47,7 +47,7 @@
         JPC: 1,000</p><img src="/Jimboski-files/images/GodlyJimboFuel.gif"><p>Godly Jimbo Fuel owned: <span id="GJFOwnedDisplay"></span></p></button>
     </div>
     <div class="Assistants">
-      <button onclick="assistantClicked"><p>Autoclicks every 5 seconds<br />
+      <button onclick="assistantClicked()"><p>Autoclicks every 5 seconds<br />
         100 Jimboskis</p><img src="/Jimboski-files/images/JimboAssistant.png"><p>Jimbo Assistants owned: <span id="JAOwnedDisplay"></span></p></button>
     </div>
     <script>
@@ -61,7 +61,7 @@
       const GJFOwnedDisplay = document.getElementById('GJFOwnedDisplay')
       const JAOwnedDisplay = document.getElementById('JAOwnedDisplay')
       let score = 0
-      let multiplier = 0
+      let multiplier = 1
       let JFOwned = 0
       let FJFOwned = 0
       let AuJFOwned = 0
@@ -78,6 +78,18 @@
       PJFOwnedDisplay.textContent = PJFOwned
       GJFOwnedDisplay.textContent = GJFOwned
       JAOwnedDisplay.textContent = JAOwned
+      
+      function jimboskiClicked() {
+        check()
+        score += multiplier
+        scoreDisplay.textContent = score
+      }
+      
+      function check() {
+        if (score >= 6000000) {
+          window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+        }
+      }
     </script>
   </body>
 </html>
