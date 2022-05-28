@@ -70,7 +70,9 @@
       let JAOwned = 0
       
       //game
-      scoreDisplay.textContent = score
+      scoreBeingDisplayed = score.toLocaleString()
+      jpcBeingDisplayed = score.toLocaleString()
+      scoreDisplay.textContent = scoreBeingDisplayed
       jpcDisplay.textContent = multiplier
       JFOwnedDisplay.textContent = JFOwned
       FJFOwnedDisplay.textContent = FJFOwned
@@ -81,7 +83,7 @@
       
       function jimboskiClicked() {
         score += multiplier
-        scoreDisplay.textContent = score
+        scoreDisplay.textContent = scoreBeingDisplayed
       }
       
       function JFClicked() {
@@ -91,8 +93,8 @@
           if (score >= 150) {
             score -= 150
             multiplier += 10
-            scoreDisplay.textContent = score
-            jpcDisplay.textContent = multiplier
+            scoreDisplay.textContent = scoreBeingDisplayed
+            jpcDisplay.textContent = multiplierBeingDisplayed
             JFOwned++
             JFOwnedDisplay.textContent = JFOwned
           } else {
@@ -108,8 +110,8 @@
           if (score >= 300) {
             score -= 300
             multiplier += 50
-            scoreDisplay.textContent = score
-            jpcDisplay.textContent = multiplier
+            scoreDisplay.textContent = scoreBeingDisplayed
+            jpcDisplay.textContent = multiplierBeingDisplayed
             FJFOwned++
             FJFOwnedDisplay.textContent = FJFOwned
           } else {
@@ -125,8 +127,8 @@
           if (score >= 900) {
             score -= 900
             multiplier += 100
-            scoreDisplay.textContent = score
-            jpcDisplay.textContent = multiplier
+            scoreDisplay.textContent = scoreBeingDisplayed
+            jpcDisplay.textContent = multiplierBeingDisplayed
             AuJFOwned++
             AuJFOwnedDisplay.textContent = AuJFOwned
           } else {
@@ -142,8 +144,8 @@
           if (score >= 1500) {
             score -= 1500
             multiplier += 300
-            scoreDisplay.textContent = score
-            jpcDisplay.textContent = multiplier
+            scoreDisplay.textContent = scoreBeingDisplayed
+            jpcDisplay.textContent = multiplierBeingDisplayed
             PJFOwned++
             PJFOwnedDisplay.textContent = PJFOwned
           } else {
@@ -159,8 +161,8 @@
           if (score >= 5000) {
             score -= 5000
             multiplier += 1000
-            scoreDisplay.textContent = score
-            jpcDisplay.textContent = multiplier
+            scoreDisplay.textContent = scoreBeingDisplayed
+            jpcDisplay.textContent = multiplierBeingDisplayed
             GJFOwned++
             GJFOwnedDisplay.textContent = GJFOwned
           } else {
