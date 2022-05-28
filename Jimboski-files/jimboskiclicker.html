@@ -101,6 +101,23 @@
         }
       }
       
+      function FJFClicked() {
+        if (FJFOwned >= 30) {
+          alert(`You cannot own more than ${FJFOwned} Fancy Jimbo Fuel cans`)
+        } else {
+          if (score >= 300) {
+            score -= 300
+            multiplier += 50
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
+            FJFOwned++
+            FJFOwnedDisplay.textContent = FJFOwned
+          } else {
+            alert('You do not have enough Jimboskis to buy that')
+          }
+        }
+      }
+
       setInterval(check(), 100)
       
       function check() {
