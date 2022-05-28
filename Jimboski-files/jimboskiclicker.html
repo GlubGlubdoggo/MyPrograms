@@ -30,7 +30,6 @@
   </head>
   <body>
     <h1>HAPPY BIRTHDAY CAMDEN!  CLICK JIMBOSKI.</h1>
-    <button onclick="ya()">temporary</button>
     <h2>Jimboskis: <span id="jimboskiDisplay"></span></h2>
     <h2 class="tpc">Jimboskis per click: <span id="jpcDisplay"></span></h2>
     <hr />
@@ -81,10 +80,28 @@
       JAOwnedDisplay.textContent = JAOwned
       
       function jimboskiClicked() {
-        check()
         score += multiplier
         scoreDisplay.textContent = score
       }
+      
+      function JFClicked() {
+        if (JFOwned >= 30) {
+          alert(`You cannot own more than ${JFOwned} Jimbo Fuel cans`)
+        } else {
+          if (score >= 150) {
+            score -= 150
+            multiplier += 10
+            scoreDisplay.textContent = score
+            jpcDisplay.textContent = multiplier
+            JFOwned++
+            JFOwnedDisplay.textContent = JFOwned
+          } else {
+            alert('You do not have enough Jimboskis to buy that')
+          }
+        }
+      }
+      
+      setInterval(check(), 100)
       
       function check() {
         if (score >= 6000000) {
@@ -92,10 +109,9 @@
         }
       }
       
-      function ya() {
-        for (var i = 0; i < 6000000; i++) {
+      function getRolled() {
+        for (var i = 0; i < 100; i++) {
           score++
-          check()
         }
       }
     </script>
