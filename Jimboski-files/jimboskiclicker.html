@@ -171,11 +171,17 @@
       }
       
       function JAClicked() {
-        if (JAOwned > 18) {
+        if (JAOwned >= 30) {
           alert(`You cannot own more than ${JAOwned} Jimbo Assistants`)
         } else {
-          interval -= 500
-          setInterval(JimboskiClicked(), interval)
+          if (score >= 100) {
+            score -= 100
+            scoreDisplay.textContent = score
+            JAOwned++
+            JAOwnedDisplay.textContent = JAOwned
+          } else {
+            alert('You do not have enough Jimboskis to buy that')
+          }
         }
       }
     </script>
