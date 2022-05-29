@@ -190,7 +190,8 @@
         }
       }
       
-      window.addEventListener('keydown', event => {
+      document.onkeydown = enter
+      function enter(event) {
         if (event.keyCode === 13) {
           jimboskiClicked()
         }
