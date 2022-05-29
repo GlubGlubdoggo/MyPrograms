@@ -190,8 +190,8 @@
         }
       }
       
-      window.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
+      window.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
           jimboskiClicked()
         }
       }
