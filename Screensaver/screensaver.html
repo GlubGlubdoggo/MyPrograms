@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Screensaver</title>
+    <!--CSS-->
+    <style>
+      * {
+        margin: 0; 
+        padding: 0;
+      }
+      #canvas {
+	      background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <!--JS-->
+    <script>
+      //foundation
+      const canvas = document.getElementById('canvas')
+      const ctx = canvas.getContext('2d')
+      
+      //canvas sizing
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      
+      //variables
+      //ball creation variables
+      var ballRadius = 20
+      var ballX = Math.floor(Math.random()*(canvas.width-ballRadius))
+      var ballY = Math.floor(Math.random()*(canvas.height-ballRadius))
+      //ball colors
+      var ballColors = [
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple'
+      ]
+      var bcc = 0
+      var ballColor = ballColors[bcc]
+      //ball movement variables
+      var movementX = 3
+      var movementY = 3
+      //background color changing variables
+      var colors = [
+        'red',
+        'skyblue',
+        'yellow',
+        'blue',
+        'black',
+        'white',
+        'crimson',
+        'gray'
+      ]
+      let result
+      
+      //define circle
+      class Circle {
+        constructor(angle1, angle2) {
+          this.angle1 = angle1
+          this.angle2 = angle2
+          
+          //circle drawing function
+          this.draw = function() {
+            ctx.strokeStyle = 'black'
+            ctx.fillStyle = ballColor
+            ctx.arc(ballX, ballY, ballRadius, angle1, angle2)
+            ctx.fill()
+            ctx.stroke()
+          }
+        }
+      }
+      //change ball colors
+      function changeBallColor() {
+        ballColor = ballColors[bcc]
+        ball2Color = ballColors[bcc]
+        rectColor = ballColors[bcc]
+        rect2Color = ballColors[bcc]
+        bcc++
+        if (bcc == 7) {
+          bcc = 0
+        }
+      }
 
+      //actually change ball color now
+      setInterval(changeBallColor, 500)
+      
+      //make random number (useful for later stuff)
+      function createRandom(max) {
+        return Math.floor(Math.random()*max)
+      }
+      //create circle
+      var circle = new Circle(30, 60)
+      //motion
+      function update() {
+        //comment out ctx.beginPath() for some craziness
+        ctx.beginPath()
+        //draw circle
+        circle.draw()
+        //move circle
+        ballX += movementX
+        ballY += movementY
+        //wall collision
+        if (ballY > canvas.height - ballRadius || ballY + movementY < 0 + ballRadius) {
+          movementY = -movementY
+        } else if (ballX > canvas.width - ballRadius || ballX + movementX < 0 + ballRadius) {
+          movementX = -movementX
+        }
+      }
+      //animate ball movement every 10 ms
+      var animateInterval = setInterval(update, 10)
+      //create bubbles
+      function dropBall() {
+        ctx.strokeStyle = 'purple'
+        //30 bubbles per call
+        for (var i = 0; i < 30; i++) {
+          ctx.beginPath()
+          ctx.arc(Math.floor(Math.random()*canvas.width), Math.floor(Math.random()*canvas.height), Math.floor(Math.random()*20), Math.floor(Math.random()*40), Math.floor(Math.random()*70))
+          ctx.stroke()
+        }
+      }
+      //create bubbles every 100 ms
+      var bubbleInterval = setInterval(dropBall, 100)
+      //change background
+      function clear() {
+        result = Math.floor(Math.random()*(colors.length))
+        ctx.fillStyle = colors[result]
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        console.log(result)
+      }
+      //change background every 5 seconds
+      var bgInterval = setInterval(clear, 5000)
+    </script>
+    <script src="/Screensaver/ball2.js"></script>
+    <script src="/Screensaver/rect.js"></script>
+    <script src="/Screensaver/rect2.js"></script>
+  </body>
+</html>
