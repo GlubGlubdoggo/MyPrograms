@@ -1,3 +1,5 @@
+alert('Please forgive me if this has some flaws.  I am not a professional developer.  Sometimes the shapes are rendered on/outside of the boundaries of the screen, and it moves out of view.  Sorry for that.')
+
 //creation variables
 var rect2Color = ballColors[bcc]
 var rect2Width = 50
