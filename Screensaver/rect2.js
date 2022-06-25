@@ -1,4 +1,4 @@
-alert('Please forgive me if this has some flaws.  I am not a professional developer.  Sometimes the shapes are rendered on/outside of the boundaries of the screen, and it moves out of view.  Sorry for that.')
+alert('Please forgive me if this has some flaws.  I am not a professional developer.  Sometimes the shapes are rendered on/outside of the boundaries of the screen, and it moves out of view, and they also periodically wiggle themselves out of the boundaries via the corners of the screen, and move out of view.  Sorry for that.')
 
 //creation variables
 var rect2Color = ballColors[bcc]
