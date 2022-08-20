@@ -28,6 +28,11 @@
       switch(dude) {
         case 'ThePassword':
           var Dude = prompt('Is the progress bar full?')
+          switch(Dude) {
+            case 'No, it is at 99%':
+            default:
+              close()
+          }
           break
         default:
           close()
