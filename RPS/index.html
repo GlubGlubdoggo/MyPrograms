@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EZ Rock Paper Scissors</title>
+  </head>
+  <body>
+    <button onclick="giveans()">Challenge</button>
+    <script>
+      function giveans() {
+        var input = prompt("What will you choose? (r, p, s)")
+        switch (input) {
+          case "r":
+            alert("I chose paper. You lose!")
+            break
+          case "p":
+            alert("I chose scissors. You lose!")
+            break
+          case "s":
+            alert("I chose rock. You lose!")
+            break
+        }
+      }
+    </script>
+  </body>
+</html>
