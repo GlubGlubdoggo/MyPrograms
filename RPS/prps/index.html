@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Possible Rock Paper Scissors</title>
+    <link rel="icon" type="image/x-icon" href="/rps/GGDEV_RPS_FAV.png">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+      body {
+        background-color: #967bb6;
+        color: #90ee90;
+        font-family: 'Patua One', cursive;
+      }
+      button {
+        background-color: #967bb6;
+        color: #90ee90;
+        border-radius: 20%;
+        border-color: #90ee90;
+        font-family: 'Patua One', cursive;
+        font-size: 42px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>POSSIBLE ROCK PAPER SCISSORS</h1>
+    <h2>Choose an option:</h2>
+    <div id="opBut">
+       <button onclick="plRock()">Rock</button>
+       <button onclick="plPaper()">Paper</button>
+       <button onclick="plScissors()">Scissors</button>
+    </div>
+    <h2 id="compChoice"></h2>
+    <h2 id="result"></h2>
+    <script>
+      var plInput;
+var compInput;
+var compOut = document.getElementById("compChoice");
+var resOut = document.getElementById("result");
 
+function plRock() {
+    plInput = 0;
+    chCompInput();
+}
+
+function plPaper() {
+    plInput = 1;
+    chCompInput();
+}
+
+function plScissors() {
+    plInput = 2;
+    chCompInput();
+}
+
+function chCompInput() {
+    compInput = Math.floor(Math.random() * 3);
+    compAlerts();
+    if (compInput == plInput) {
+        resOut.innerHTML = "Draw!";
+    }
+    if (compInput == 0 && plInput == 1) {
+        resOut.innerHTML = "You won!";
+    }
+    if (compInput == 0 && plInput == 2) {
+        resOut.innerHTML = "You lost!";
+    }
+    if (compInput == 1 && plInput == 0) {
+        resOut.innerHTML = "You lost!";
+    }
+    if (compInput == 1 && plInput == 2) {
+        resOut.innerHTML = "You won!";
+    }
+    if (compInput == 2 && plInput == 0) {
+        resOut.innerHTML = "You won!";
+    }
+    if (compInput == 2 && plInput == 1) {
+        resOut.innerHTML = "You lost!";
+    }
+}
+
+function compAlerts() {
+    if (compInput == 0) {
+        compOut.innerHTML = "Computer chose rock!";
+    }
+    if (compInput == 1) {
+        compOut.innerHTML = "Computer chose paper!";
+    }
+    if (compInput == 2) {
+        compOut.innerHTML = "Computer chose scissors!";
+    }
+}
+    </script>
+  </body>
+</html>
